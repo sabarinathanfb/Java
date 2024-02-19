@@ -3,6 +3,7 @@ package BinarySearch;
 public class MaxEleInRotatedSortedArray {
     public static void main(String[] args) {
         int[] A = {11,12,18,19,22,26,28,29,30,1,2,3,4,5,6,7};
+//        int[] A = {4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 1, 2, 3};
 
         System.out.println(MaximumElement(A,0,A.length));
 
@@ -15,7 +16,7 @@ public class MaxEleInRotatedSortedArray {
             if(A[S] < A[M]){
                 S = M;
             }else{
-                E = M;
+                E = M-1;
             }
         }
         return A[S];
