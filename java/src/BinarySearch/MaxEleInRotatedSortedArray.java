@@ -2,14 +2,14 @@ package BinarySearch;
 
 public class MaxEleInRotatedSortedArray {
     public static void main(String[] args) {
-        int[][] A = {
-                {11, 12, 18, 19, 22, 26, 28, 29, 30, 1, 2, 3, 4, 5, 6, 7},
-                {26, 28, 29, 1, 2, 3, 4, 5, 6, 7, 11, 12, 18, 19, 22},
-                { 1, 2, 3, 4, 5, 6, 7, 11, 12, 18, 19, 22, 26}
-        };
+        int[] A = {4, 5, 6, 7, 0, 1, 2};
+        int k = 5;
+        int max = maximumElement(A);
 
-        for (int[] nums : A) {
-            System.out.println(maximumElement(nums));
+        if(A[0] <= k && k <=A[max]){
+            System.out.println(BinarySearch(A,0,max,k));
+        }else{
+            System.out.println(BinarySearch(A,max+1,A.length-1,k));
         }
     }
 
@@ -22,10 +22,28 @@ public class MaxEleInRotatedSortedArray {
             if (arr[S] < arr[M]) {
                 S = M;
             } else {
-                E = M-1;
+                E = M;
             }
         }
-        return arr[S];
+        return S;
+    }
+    public static int BinarySearch(int[] A,int S,int E,int target){
+
+
+        while(S <= E){
+            int mid = S+(E-S)/2;
+            if(A[mid] == target) {
+                return mid;
+            } else if (target < A[mid]) {
+                E = mid -1;
+
+            }else {
+               S = mid +1;
+            }
+        }
+
+        return -1;
+
     }
 }
 

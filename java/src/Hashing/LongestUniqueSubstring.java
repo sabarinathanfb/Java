@@ -6,7 +6,7 @@ import java.util.HashSet;
 
 public class LongestUniqueSubstring {
     public static void main(String[] args) {
-        String A = "aaabcdaaacccscs";
+        String A = "abaabcdebjiabc";
 
 
         System.out.println(BruteForce(A));
@@ -50,23 +50,7 @@ public class LongestUniqueSubstring {
         return Max_length;
 
     }
-    public static int lengthOfLongestSubstring(String s) {
-        if (s == null || s.length() == 0) {
-            return 0;
-        }
 
-        int n = s.length();
-        int maxLen = 0;
-        int[] charIndex = new int[128]; // Assuming ASCII characters
-
-        for (int i = 0, j = 0; j < n; j++) {
-            i = Math.max(charIndex[s.charAt(j)], i);
-            maxLen = Math.max(maxLen, j - i + 1);
-            charIndex[s.charAt(j)] = j + 1;
-        }
-
-        return maxLen;
-    }
     public static int UsingHashmap(String s){
 
         HashMap<Character,Integer> Hm = new HashMap<>();
@@ -85,5 +69,22 @@ public class LongestUniqueSubstring {
 
         }
         return max_len;
+    }
+    public static int lengthOfLongestSubstring(String s) {
+        if (s == null || s.isEmpty()) {
+            return 0;
+        }
+
+        int n = s.length();
+        int maxLen = 0;
+        int[] charIndex = new int[128]; // Assuming ASCII characters
+        int i=0;
+        for (int j = 0; j < n; j++) {
+            i = Math.max(charIndex[s.charAt(j)], i);
+            maxLen = Math.max(maxLen, j - i + 1);
+            charIndex[s.charAt(j)] = j + 1;
+        }
+
+        return maxLen;
     }
 }

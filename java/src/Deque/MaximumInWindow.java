@@ -5,10 +5,10 @@ import java.util.Deque;
 
 public class MaximumInWindow {
     public static void main(String[] args) {
-        int[] A = {4,0,-1,3,5,3,1,2};
+        int[] A = {5,4,3,2,1};
         int k = 3;
 
-        System.out.println(MaxWindowSum2(A,k));
+        System.out.println(MaxWindowSum(A,k));
     }
     static int  MaxWindowSum(int[] A, int k){
         int Total_Max_sum = 0;
@@ -19,13 +19,13 @@ public class MaximumInWindow {
 
                 Dq.poll();
             }
-            while (!Dq.isEmpty() && A[Dq.peek()] <= A[i]){
+            while (!Dq.isEmpty() && A[Dq.peekLast()] <= A[i]){
                 Dq.pollLast();
             }
 
             Dq.offer(i);
 
-            if(i >= k-1){
+            if(i >= k-1 && !Dq.isEmpty()){
 
                 Total_Max_sum += A[Dq.peek()];
             }
