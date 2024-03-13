@@ -5,7 +5,7 @@ import java.util.Arrays;
 
 public class MergeUnsortedArrayintoNewArray {
     public static void main(String[] args) {
-        int[] A = {35,456,7,58,9,5,6,5636,3,68,657567,4,634,55,35,356,53,53};
+        int[] A = {8,7,5,4,3,2,1};
 
         System.out.println(Arrays.toString(mergeSort(A,0,A.length-1)));
     }
