@@ -4,6 +4,7 @@ public class Fibo {
     public static void main(String[] args) {
 
         int n=10;
+        
         int a=0;
         int b=1;
 

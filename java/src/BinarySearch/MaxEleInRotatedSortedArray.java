@@ -3,13 +3,13 @@ package BinarySearch;
 public class MaxEleInRotatedSortedArray {
     public static void main(String[] args) {
         int[] A = {4, 5, 6, 7, 0, 1, 2};
-        int k = 5;
+        int Target = 5;
         int max = maximumElement(A);
 
-        if(A[0] <= k && k <=A[max]){
-            System.out.println(BinarySearch(A,0,max,k));
+        if(A[0] <= Target && Target <=A[max]){
+            System.out.println(BinarySearch(A,0,max,Target));
         }else{
-            System.out.println(BinarySearch(A,max+1,A.length-1,k));
+            System.out.println(BinarySearch(A,max+1,A.length-1,Target));
         }
     }
 

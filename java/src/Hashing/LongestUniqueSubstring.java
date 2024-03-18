@@ -10,7 +10,6 @@ public class LongestUniqueSubstring {
 
 
         System.out.println(BruteForce(A));
-        System.out.println(UsingHashSet(A));
         System.out.println(lengthOfLongestSubstring(A));
         System.out.println(UsingHashmap(A));
     }
@@ -30,25 +29,6 @@ public class LongestUniqueSubstring {
             }
         }
         return max_length;
-    }
-    public static int UsingHashSet(String A){
-        int Max_length =0;
-        HashSet<Character> Hs = new HashSet<>();
-
-        int i=0;
-        for(int j=0;j<A.length(); j++){
-            char c = A.charAt(j);
-            if(!Hs.contains(c)){
-                Hs.add(c);
-                Max_length = Math.max(Max_length,Hs.size());
-
-            }else{
-                Hs.clear();
-                j=i++;
-            }
-        }
-        return Max_length;
-
     }
 
     public static int UsingHashmap(String s){

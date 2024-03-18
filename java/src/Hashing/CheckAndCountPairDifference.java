@@ -31,7 +31,7 @@ public class CheckAndCountPairDifference {
         return result;
     }
     public static int CountPairDifference(int[] A,int k){
-        //https://leetcode.com/problems/count-number-of-pairs-with-absolute-difference-k/
+//        https://leetcode.com/problems/count-number-of-pairs-with-absolute-difference-k/
         // Where k is not Equal to 0
 
         HashMap<Integer,Integer> Hm = new HashMap<>();
