@@ -15,25 +15,12 @@ public class MergeTwoSortedArrayInFirstArray {
         int j = M-1;
         int k = N-1;
 
-        while( i >=0 && j>=0){
-
-            if(A[i] >= B[j]){
-
-                A[k] = A[i];
-                i--;
+        while(j >=0){
+            if(i >=0 && A[i] >= B[j]){
+                A[k--] = A[i--];
             }else{
-                A[k] = B[j];
-                j--;
+                A[k--] = B[j--];
             }
-            k--;
-        }
-        while(i>=0){
-            A[k] = A[i];
-            i--;k--;
-        }
-        while (j>=0){
-            A[k] = B[j];
-            j--;k--;
         }
         System.out.println(Arrays.toString(A));
     }

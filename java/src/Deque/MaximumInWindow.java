@@ -5,11 +5,11 @@ import java.util.Deque;
 
 public class MaximumInWindow {
     public static void main(String[] args) {
-        int[] A = {1 ,2 ,3,1 ,4 ,5 ,2 ,3, 6};
+        int[] A = {1 ,2 ,3,4,5};
         //3, 1, 2, 4, 5
         int k = 3;
-
         System.out.println(MaxWindowSum(A,k));
+        System.out.println(MaxWindowSum2(A,k));
     }
     static int  MaxWindowSum(int[] A, int k){
         //https://www.geeksforgeeks.org/problems/ipl-2021-match-day-2--141634/1?itm_source=geeksforgeeks&itm_medium=article&itm_campaign=bottom_sticky_on_article
@@ -29,7 +29,7 @@ public class MaximumInWindow {
 
             if(i >= k-1 && !Dq.isEmpty()){
 
-                System.out.println(A[Dq.peek()]);
+                Total_Max_sum += A[Dq.peek()];
             }
         }
         return Total_Max_sum;
@@ -37,34 +37,22 @@ public class MaximumInWindow {
 
     }
     static int MaxWindowSum2(int[] A, int k){
-        if (A == null || A.length == 0 || k <= 0) {
+        if (A.length == 0 || k <= 0) {
             return 0;
         }
 
         int n = A.length;
         int Total_Max_sum = 0;
-        int currentMax = Integer.MIN_VALUE;
 
-        // Calculate the maximum element in the first window of length k
-        for (int i = 0; i < k; i++) {
-            currentMax = Math.max(currentMax, A[i]);
-        }
-
-        Total_Max_sum += currentMax; // Initialize Total_Max_sum with the max of first window
-
-        // Slide the window and update the maximum sum
-        for (int i = k; i < n; i++) {
-            // If the maximum element of the previous window is no longer in the current window, find the maximum element in the current window
-            if (A[i - k] == currentMax) {
-                currentMax = Integer.MIN_VALUE;
-                for (int j = i - k + 1; j <= i; j++) {
-                    currentMax = Math.max(currentMax, A[j]);
+        for (int i = 0; i < n-k+1; i++) {
+            int max = A[i];
+            for(int j=i+1; j < i+k; j++){
+                if(A[j] >max){
+                    max = A[j];
                 }
-            } else {
-                currentMax = Math.max(currentMax, A[i]);
             }
+            Total_Max_sum += max;
 
-            Total_Max_sum += currentMax;
         }
 
         return Total_Max_sum;
