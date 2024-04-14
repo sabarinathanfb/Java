@@ -17,28 +17,16 @@ public class MergeSort {
 
     static int[] bruteForce(int[] A,int[] B){
 
-        int[] Ans = new int[A.length];
 
-        int m = 4;
-        int n = 3;
 
-        int i=0; int j=0; int k=0;
-        while(i<m && j <n){
+        for (int i = 0; i < B.length; i++) {
+            A[A.length-3+i] = B[i];
 
-            if(A[i] <= B[j]){
-                Ans[k++] = A[i++];
-            }else {
-                Ans[k++] = B[j++];
-            }
-        }
-        while (i<m){
-            Ans[k++] = A[i++];
-        }
-        while (j<n){
-            Ans[k++] = B[j++];
         }
 
-        return Ans;
+        Arrays.sort(A);
+
+        return A;
 
     }
 
