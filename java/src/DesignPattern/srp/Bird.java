@@ -1,35 +1,14 @@
 package DesignPattern.srp;
 
-public class Bird {
-    String name;
-    String color;
-    double weight;
-    String type;
+public abstract class Bird {
+    public String name;
+    public String color;
+    public double weight;
+    public String type;
 
-    public void fly(){}
-
-    // Violate Srp Principle
-    public void makeSound(){
-        if(this.type == "crow"){
-            //Srp solution System.out.println("ka ka kaaa");
-            crowSound();
-        }
-        else if(this.type == "sparrow"){
-            sparrowSound();
-        }
-    }
-
-    private void sparrowSound() {
-        System.out.println("ki ki kii");
-        return ;
-    }
-
-    private void crowSound() {
-        System.out.println("ka ka kaaa");
-        return ;
-    }
-
-    public void eat(){}
-    public void dance(){}
+    public abstract void fly() throws FlyException ;
+    public abstract void makeSound();
+    public abstract void eat();
+    public abstract void dance();
 
 }
