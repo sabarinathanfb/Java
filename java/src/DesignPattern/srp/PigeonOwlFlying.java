@@ -1,6 +1,6 @@
 package DesignPattern.srp;
 
-public class PigeonOwlFlying {
+public class PigeonOwlFlying implements FlyingBehaviour {
 
     public void makeFly(){
 

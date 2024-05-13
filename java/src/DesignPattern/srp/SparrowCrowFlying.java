@@ -1,6 +1,6 @@
 package DesignPattern.srp;
 
-public class SparrowCrowFlying {
+public class SparrowCrowFlying implements FlyingBehaviour {
 
     public void makeFly(){
 

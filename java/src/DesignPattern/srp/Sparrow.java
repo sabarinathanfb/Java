@@ -2,8 +2,14 @@ package DesignPattern.srp;
 
 public class Sparrow extends Bird implements Flyable {
 
-    // Problem for Like Bank Api violate DIP
-    SparrowCrowFlying scf = new SparrowCrowFlying();
+    FlyingBehaviour f ;
+
+
+    public Sparrow(FlyingBehaviour other){
+
+        this.f = other;
+    }
+
 
     @Override
     public void makeSound() {
@@ -15,8 +21,9 @@ public class Sparrow extends Bird implements Flyable {
 
     @Override
     public void fly() {
+        System.out.print(this.name + "Flying Like ");
+        f.makeFly();
 
-       scf.makeFly();
 
     }
 }
