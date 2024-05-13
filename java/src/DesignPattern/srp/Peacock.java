@@ -1,17 +1,8 @@
 package DesignPattern.srp;
 
-public class Crow extends Bird {
-
-
-    @Override
-    public void fly() {
-        
-    }
-
+public class Peacock extends Bird implements Flyable,Dance{
     @Override
     public void makeSound() {
-
-        System.out.println("Ka KA KAAAA");
 
     }
 
@@ -22,6 +13,12 @@ public class Crow extends Bird {
 
     @Override
     public void dance() {
+        System.out.println("I am Peacock,I can Dance");
+
+    }
+
+    @Override
+    public void fly() {
 
     }
 }

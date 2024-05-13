@@ -1,26 +1,19 @@
 package DesignPattern.srp;
 
-public class Sparrow extends Bird{
-    @Override
-    public void fly() {
-        System.out.println("Sparrow Flying");
-
-    }
+public class Sparrow extends Bird implements Flyable {
 
     @Override
     public void makeSound() {
-
         System.out.println("KI KI KIIIII");
-
     }
-
     @Override
     public void eat() {
-
     }
 
     @Override
-    public void dance() {
+    public void fly() {
+
+        System.out.println("I Am sparrow I can Fly");
 
     }
-}
+} 

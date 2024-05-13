@@ -1,22 +1,25 @@
 package DesignPattern.srp;
 
 public class Client {
-    public static void main(String[] args) throws FlyException {
 
-        Bird b1 = new Crow();
-        b1.type = "crow";
-        b1.name = "kaaka";
 
-        Bird b2 = new Sparrow();
+    public static void main(String[] args)  {
 
-        b2.type = "sparrow";
-        b2.name = "kili";
 
-        b1.makeSound();
-        b2.makeSound();
-        Bird b3 = new Penguin();
-        b3.fly();
-        b2.fly();
+        Bird b1 = new Sparrow();
+        b1.name = "Kili";
+        b1.type = "sparrow";
+        Bird b2 = new Penguin();
+        b1.name = "Penguin";
+        b1.type = "penguin";
+        Bird b3 = new Peacock();
+        b3.name = "Mayil";
+        b3.type = "peacock";
+
+
+        // Need to Cast LSP to solve
+        ((Flyable) b1).fly();
+
 
     }
 }
